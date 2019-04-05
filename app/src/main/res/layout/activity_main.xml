@@ -158,7 +158,7 @@
                 android:layout_alignLeft="@id/rv_programs"
                 android:layout_alignRight="@id/rv_programs"
                 android:layout_marginTop="@dimen/margin_xlarge"
-                android:text="Features"
+                android:text="All Topics"
                 android:textColor="@color/white_full"
                 android:textSize="@dimen/text_regular_3x" />
 

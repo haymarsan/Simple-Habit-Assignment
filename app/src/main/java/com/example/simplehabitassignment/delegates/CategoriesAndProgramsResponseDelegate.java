@@ -5,8 +5,8 @@ import com.example.simplehabitassignment.data.vos.CategoriesAndProgramsVO;
 
 import java.util.List;
 
-public interface CategoriesAndProgramsResponseDelegate {
+public interface CategoriesAndProgramsResponseDelegate extends BaseDelegate {
 
     void onSuccess(List<CategoriesAndProgramsVO> categoriesProgramsList);
-    void onFail(String errorMessage);
+
 }

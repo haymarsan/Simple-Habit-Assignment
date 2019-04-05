@@ -1,11 +1,13 @@
 package com.example.simplehabitassignment.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -39,6 +41,11 @@ public class MainActivity extends AppCompatActivity implements CategoriesProgram
     private ImageView ivStart;
     private TextView tvPeriod,tvTitle;
     private Button btnDay;
+
+    public static Intent newIntent(Context context) {
+        Intent intent = new Intent(context, MainActivity.class);
+        return intent;
+    }
 
 
     @Override
@@ -158,5 +165,10 @@ public class MainActivity extends AppCompatActivity implements CategoriesProgram
         intent.putExtra("id",program.getProgramId());
         startActivity(intent);
 
+    }
+
+    @Override
+    public void onFail(String errorMessage) {
+        Log.d("Login", "fail");
     }
 }

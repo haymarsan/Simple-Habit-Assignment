@@ -1,12 +1,16 @@
 package com.example.simplehabitassignment.network;
 
+import android.util.Log;
+
 import com.example.simplehabitassignment.Utils.AppConstants;
 import com.example.simplehabitassignment.delegates.CategoriesAndProgramsResponseDelegate;
 import com.example.simplehabitassignment.delegates.CurrentProgramResponseDelegate;
+import com.example.simplehabitassignment.delegates.LoginDelegate;
 import com.example.simplehabitassignment.delegates.TopicsResponseDelegate;
 import com.example.simplehabitassignment.network.response.GetCategoriesAndProgramsResponse;
 import com.example.simplehabitassignment.network.response.GetCurrentProgramResponse;
 import com.example.simplehabitassignment.network.response.GetTopicsResponse;
+import com.example.simplehabitassignment.network.response.LoginResponse;
 import com.google.gson.Gson;
 
 
@@ -115,6 +119,7 @@ public class RetrofitDA implements DataAgent {
        });
     }
 
+
     @Override
     public void getCategoriesAndPrograms(String accessToken, int page, final CategoriesAndProgramsResponseDelegate delegate) {
 
@@ -144,6 +149,42 @@ public class RetrofitDA implements DataAgent {
             }
         });
     }
+
+
+//    @Override
+//    public void login(String phoneNumber, String password, LoginDelegate loginDelegate) {
+//        Call<LoginResponse> callLoginResponse = mNewsAPI.login(phoneNumber, password);
+//        callLoginResponse.enqueue(new NewsCallback<LoginResponse, LoginDelegate>(loginDelegate) {
+//            @Override
+//            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+//                super.onResponse(call, response);
+//                LoginResponse loginResponse = response.body();
+//                if (loginResponse != null && loginResponse.isResponseSuccess()) {
+//                    LoginUserVO loginUser = loginResponse.getLoginUser();
+//                    networkDelegate.onSuccess(loginUser);
+//                }
+//            }
+//        });
+//    }
+
+    @Override
+    public void login(String phone, String password, final LoginDelegate loginDelegate) {
+        mApi.login(phone,password).enqueue(new Callback<LoginResponse>() {
+            @Override
+            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                loginDelegate.onSuccess(response.body().getLoginUser());
+                Log.d("Login","Success");
+            }
+
+            @Override
+            public void onFailure(Call<LoginResponse> call, Throwable t) {
+                loginDelegate.onFail("Network fail");
+                Log.d("Login","fail");
+
+            }
+        });
+    }
+
 
 
 }

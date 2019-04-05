@@ -3,9 +3,8 @@ package com.example.simplehabitassignment.delegates;
 
 import com.example.simplehabitassignment.data.vos.CurrentProgramVO;
 
-public interface CurrentProgramResponseDelegate {
+public interface CurrentProgramResponseDelegate extends BaseDelegate{
 
     void onSuccess(CurrentProgramVO currentProgram);
 
-    void onFail(String errorMessage);
 }

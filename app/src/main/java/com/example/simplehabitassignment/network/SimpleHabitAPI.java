@@ -1,9 +1,11 @@
 package com.example.simplehabitassignment.network;
 
 
+import com.example.simplehabitassignment.Utils.AppConstants;
 import com.example.simplehabitassignment.network.response.GetCategoriesAndProgramsResponse;
 import com.example.simplehabitassignment.network.response.GetCurrentProgramResponse;
 import com.example.simplehabitassignment.network.response.GetTopicsResponse;
+import com.example.simplehabitassignment.network.response.LoginResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -24,6 +26,11 @@ public interface SimpleHabitAPI {
     @POST("getCategoriesPrograms.php")
     Call<GetCategoriesAndProgramsResponse> getCategoriesAndPrograms(@Field("access_token") String accessToken, @Field("page") int page);
 
+
+    @FormUrlEncoded
+    @POST(AppConstants.LOGIN_URL)
+    Call<LoginResponse> login(@Field("phoneNo") String phoneNo,
+                              @Field("password") String password);
 
 
 }
