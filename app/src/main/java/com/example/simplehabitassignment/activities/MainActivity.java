@@ -16,13 +16,17 @@ import android.widget.TextView;
 
 import com.example.simplehabitassignment.R;
 import com.example.simplehabitassignment.adapters.CategoriesProgramsAdapter;
+import com.example.simplehabitassignment.adapters.TopicsAdapter;
 import com.example.simplehabitassignment.data.vos.CategoriesAndProgramsVO;
 import com.example.simplehabitassignment.data.vos.CurrentProgramVO;
 import com.example.simplehabitassignment.data.vos.ProgramsVO;
+import com.example.simplehabitassignment.data.vos.TopicsVO;
 import com.example.simplehabitassignment.data.vos.models.CategoriesAndProgramsModel;
 import com.example.simplehabitassignment.data.vos.models.CategoriesAndProgramsModelImpl;
 import com.example.simplehabitassignment.data.vos.models.CurrentProgramModel;
 import com.example.simplehabitassignment.data.vos.models.CurrentProgramModelImpl;
+import com.example.simplehabitassignment.data.vos.models.TopicsModel;
+import com.example.simplehabitassignment.data.vos.models.TopicsModelImpl;
 import com.example.simplehabitassignment.delegates.CategoriesProgramsItemDelegate;
 
 import java.util.List;
@@ -31,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements CategoriesProgram
 
     private RecyclerView rvCategoriesPrograms,rvTopics;
     private CategoriesProgramsAdapter categoriesProgramsAdapter;
-    //private TopicsAdapter topicsAdapter;
+    private TopicsAdapter topicsAdapter;
     private ImageView ivStart;
     private TextView tvPeriod,tvTitle;
     private Button btnDay;
@@ -99,9 +103,8 @@ public class MainActivity extends AppCompatActivity implements CategoriesProgram
 
 
 
-/*
         // Call Topics API
-          TopicsModelImpl.getObjInstance().getTopics("b002c7e1a528b7cb460933fc2875e916", 1, new TopicsModel.TopicDelegate() {
+          TopicsModelImpl.getObjInstance().getTopics("b002c7e1a528b7cb460933fc2875e916", 1, new TopicsModel.TopicsDelegate() {
               @Override
               public void onSuccess(List<TopicsVO> topicsList) {
                   topicsAdapter.setNewData(topicsList);
@@ -112,19 +115,17 @@ public class MainActivity extends AppCompatActivity implements CategoriesProgram
 
               }
           });
-*/
 
 
 
 
 
 
-/*
        // recycler view for Topics
        rvTopics = findViewById(R.id.rv_topics);
        topicsAdapter = new TopicsAdapter();
        rvTopics.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL,false));
-       rvTopics.setAdapter(topicsAdapter);*/
+       rvTopics.setAdapter(topicsAdapter);
 
     }
 

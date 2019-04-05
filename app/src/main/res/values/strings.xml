@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Simple Habit Assignment</string>
     <string name="action_settings">Settings</string>
+    <string name="topic_description">Learn mediation fundamentals</string>
+    <string name="topic_details_description">If you are being bullied at school, outside of school or online, listen to these meditations to calm your body, clear your mind and ease any anxiety or fear you might be feeling.</string>
 </resources>
